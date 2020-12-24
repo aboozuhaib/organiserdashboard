@@ -214,6 +214,23 @@
                               <label>Error</label>
                               <input type="text" class="form-control" placeholder="What's your issue">
                             </div>
+                            <div class="form-group col-md-6 my-auto">
+                              
+                              <div class="dropdown pt-2">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" 
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span id="showhere"> SELECT</span>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li class="dropdown-item" id="content1" onclick="namechange1()">Voulnteer</a>
+                                <li class="dropdown-item" id="content2" onclick="namechange2()">Event Organiser</a>
+                                <li class="dropdown-item" id="content3" onclick="namechange3()">Finance Team</a>
+                                
+                              </div>
+                              </div>
+                
+                            </div>
+                            
                             <!-- <div class="dropdown">
                               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Category
@@ -231,7 +248,18 @@
                             <label>Error Description</label>
                             <textarea class="form-control" placeholder="Error Description"></textarea>
                           </div>
-                          <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+                          
+                            <button type="submit" class="btn btn-primary float-right" >Submit</button>
+                          <br>
+                          
+                          <div class="form-group">
+                            <label>Error Description</label>
+                            <textarea class="form-control mt-1" placeholder="Error Description"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlFile1">Upload Image</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          </div>
                         </form>
                       </div>
                     </div>
@@ -257,6 +285,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="js/front.js"></script>
     <script>
+
       let x = document.getElementById("create");
       let y = document.getElementById("update");
       let z = document.getElementById("notify");
@@ -317,8 +346,8 @@
       ];
       function EventList(){
         event = events.reduce((eventhtml,eve) =>{
-        eventhtml += `<div class="row">
-                    <div class="col-lg-4 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
+        eventhtml += `<div class="row col-lg-12">
+                    <div class="col-lg-4 d-flex align-items-center flex-column flex-lg-row text-center text-md-left ">
                       <h6 class="mb-0 ">${eve.name}</h6>
                     </div>
                     <div class="col-lg-8 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
@@ -326,7 +355,7 @@
                       ${eve.date}
                       </div>
                       <div class="col-md-8 mt-3">
-                                <button type="button" class="btn btn-primary ml-5 mt-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 105.35px !important;">Edit</button>
+                                <button type="button" class="btn btn-primary ml-5 mr-5 mt-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 105.35px !important;">Edit</button>
                                 <div class="dropdown-menu p-4">
                                   <form>
                                     <div class="form-row">
@@ -358,7 +387,7 @@
                                     <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
                                   </form>
                                 </div>
-                                <button type="button" class="btn btn-danger ml-5 mt-2">Delete</button>
+                                <button type="button" class="btn btn-danger ml-5  mt-2">Delete</button>
                               </div>
                     </div>
                   </div>`;
@@ -368,6 +397,22 @@
       eventsElement.innerHTML = event;
     };
       EventList();
+
+      function namechange1(){
+        var name = document.getElementById("content1").innerHTML
+        console.log(name)
+        document.getElementById("showhere").innerHTML = name
+      }
+      function namechange2(){
+        var name = document.getElementById("content2").innerHTML
+        console.log(name)
+        document.getElementById("showhere").innerHTML = name
+      }function namechange3(){
+        var name = document.getElementById("content3").innerHTML
+        console.log(name)
+        document.getElementById("showhere").innerHTML = name
+      }
+      
     </script>
   </body>
 </html>
